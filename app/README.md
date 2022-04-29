@@ -1,12 +1,8 @@
-
-# Ex.No:2 Implicit and Explicit Intents
-
-Develop program to create a text field and a button “Navigate”. When you enter “www.google.com” and press navigate button it should open google page using Implicit Intents and to create two screens , first screen will take one number input from user. After click on Factorial button, second screen will open and it should display factorial of the same number using Explicit Intents.
-
+# Ex.No:2a Implicit Intents
 
 ## AIM:
 
-To create a layout,click button,open google page using Implicit Intents and display factorial number using Explicit Intents in Android Studio.
+To create a layout,click button,open google page using Implicit Intents in Android Studio.
 
 ## EQUIPMENTS REQUIRED:
 
@@ -29,18 +25,97 @@ Step 6: open google page using Implicit Intents and display factorial number usi
 Step 7: Save and run the application.
 
 ## PROGRAM:
+
 ```
 /*
-Program to print the text “Implicit and Explicit Intents”.
-Developed by:
-Registeration Number :
+Program to implement “Implicit Intents”.
+Developed by: ASHWIN A O
+Registeration Number : 212220230005
 */
 ```
+#### MainActivity.java
+```java
+package com.example.exp02;
 
-## OUTPUT
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.content.Intent;
+import android.net.Uri;
+import android.widget.Button;
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button button;
+    EditText editText;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        button = findViewById(R.id.button);
+        editText = findViewById(R.id.editText);
+        button.setOnClickListener(view -> {
+            String url=editText.getText().toString();
+            Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(intent);
+        });
+    }
+}
+```
+#### activity_main.xml
+```java
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.589"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.476"
+        tools:ignore="LabelFor,TextFields,SpeakableTextPresentCheck" />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="172dp"
+        android:text="visit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.518" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+## OUTPUT:
+![165360995-b01c7d6e-0e4d-4a37-89b7-89ab17627324](https://user-images.githubusercontent.com/75235601/165887302-10798e02-8b80-4940-b93f-44d59b07ef89.png)
+![165361017-a9170ded-cb9f-453b-b9f2-935c75374b76](https://user-images.githubusercontent.com/75235601/165887313-c4be1d37-c855-489a-bded-e1f3714dfc6d.png)
+![165361032-3d6d4061-8965-48b7-9cc5-409f4f48e490](https://user-images.githubusercontent.com/75235601/165887321-e51e6961-8c54-4bb3-afad-6535706219d7.png)
 
 
+## RESULT:
 
-
-## RESULT
-Thus a Simple Android Application to open google page using Implicit Intents and display factorial of the same number using Explicit Intents using Android Studio is developed and executed successfully.
+Thus a Simple Android Application to open google page using Implicit Intents using Android Studio is developed and executed successfully.
